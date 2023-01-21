@@ -1,0 +1,37 @@
+<div class="bg-dark ">
+<div class="row">
+  <div class="col-6">
+    <h1 style="color: aqua;">Workouts</h1>
+  </div>
+  <div class="col-6 d-flex justify-content-end">
+    <a href="/addexercise" type="button" class="btn btn-primary align-self-center">Add Workouts</a>
+  </div>
+</div>
+
+
+<table class="table table-dark table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Exercise Name</th>
+      <th scope="col">Sets</th>
+      <th scope="col">Reps</th>
+      <th scope="col" class="text-end">View/Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+     {{#each rows}}
+    <tr>
+      <th scope="row">{{this.id}}</th>
+      <td>{{this.exercise_name}}</td>
+      <td>{{this.sets}}</td>
+      <td>{{this.reps}}</td>
+      <td class="text-end">
+        <a href="/editexercise/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-eye-fill"></i></a>
+        <a href="#" type="button" class="btn btn-light btn-small"><i class="bi bi-x-circle-fill"></i></a>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>

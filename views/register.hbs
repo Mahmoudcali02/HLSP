@@ -1,0 +1,81 @@
+<html>
+
+<head>
+  <title>Registration</title>
+  <style>
+    .card {
+      background-color: #f2f2f2;
+      padding: 20px;
+      border-radius: 5px;
+      text-align: center;
+      width: 30%;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width:
+        50%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border:
+        2px solid #ccc;
+      border-radius: 4px;
+    }
+
+    input[type="submit"] {
+      width: 50%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      background-color: aqua;
+    }
+
+    input[type="submit"]:hover {
+      background-color: aquamarine;
+    }
+  </style>
+</head>
+
+<body>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item"><a href="/login">Login</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Register</li>
+    </ol>
+  </nav>
+  <div>
+    <h3 style="color: #ccc;">Register</h3>
+    <form method="post" action="/register">
+      <label style="color: aliceblue;">Username:</label>
+      <input type="text" name="username" required /><br />
+
+      <label style="color: aliceblue;">Email:</label>
+      <input type="email" name="email" required /><br />
+
+      <label style="color: aliceblue;">Password:</label>
+      <input type="password" name="password" required /><br />
+      <br />
+      <input type="submit" value="Register" />
+    </form>
+    {{#if message}}
+    <h4 class="alert alert-danger mt-3.5">{{message}}</h4>
+    {{/if}}
+  </div>
+</body>
+
+</html>

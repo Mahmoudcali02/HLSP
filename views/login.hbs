@@ -1,0 +1,80 @@
+<html>
+
+<head>
+    <title>Login</title>
+    <style>
+        .card {
+            background-color: #f2f2f2;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            width: 30%;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            background-color: aqua;
+        }
+
+        label {
+            color: aliceblue;
+        }
+
+        input[type="submit"]:hover {
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="/register">Register</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Login</li>
+        </ol>
+
+        <div>
+            <h1>Login</h1>
+            <form method="post" action="/login">
+                <label>Email:</label>
+                <input type="email" name="email" required /><br>
+
+                <label>Password:</label>
+                <input type="password" name="password" required /><br>
+
+                <input type="submit" value="Login" />
+            </form>
+            {{#if message}}
+            <h4 class="alert alert-danger mt-3.5">{{message}}</h2>
+            {{/if}}
+        </div>
+</body>
+
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI Calculator In JavaScript</title>
+  <style>
+    body {
+      margin: 0;
+      box-sizing: content-box;
+      font-family: sans-serif;
+    }
+
+    .container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 500px;
+      width: 700;
+      margin-top: 70px;
+      margin-bottom: 70px;
+      box-shadow: ;
+    }
+
+    .bmi-calculator {
+      border-radius: 8px;
+      background-color: black;
+      color: white  ;
+      padding: 20px;
+      width: 300px;
+      box-shadow: 5px 5px 10px black,
+        -5px -5px 10px black;
+    }
+
+    h1 {
+      margin: 0 0 10px 0;
+      text-align: center;
+    }
+
+    .input {
+      margin: 10px 0;
+      height: 50px;
+      color: aqua;
+    }
+
+    .input input {
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      height: 20px;
+    }
+
+    .input input:focus {
+      outline: none;
+    }
+
+    .calculate {
+      display: block;
+      margin: 0 auto;
+      padding: 10px;
+      border: none;
+      border-radius: 2px;
+      background-color: aqua;
+      width: 100%;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .bmi-status {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    .bmi-status div {
+      margin: 0;
+      padding: 5px;
+      font-size: 15px;
+      font-weight: normal;
+    }
+
+    .Underweight {
+      background-color: #ffc0cb;
+    }
+
+    .Normal {
+      background-color: #90ee90;
+    }
+
+    .Overweight {
+      background-color: #ffa07a;
+    }
+
+    .Obese {
+      background-color: #ff0000;
+    }
+
+    .Underweight,
+    .Normal,
+    .Overweight,
+    .Obese {
+      font-weight: bold;
+      margin-top: 20px;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body>
+    
+  <div class="container">
+    <div class="bmi-calculator">
+      <h1 style="color: aqua;">BMI Calculator</h1>
+      <div class="input">
+        <label for="height">Height:</label>
+        <input type="text" id="height" placeholder="Height in cm">
+      </div>
+      <div class="input">
+        <label for="weight">Weight:</label>
+        <input type="text" id="weight" placeholder="Weight in kg">
+      </div>
+      <button type="submit" class="calculate">Check BMI</button>
+      <div class="result" style="color: black;"></div>
+    </div>
+    <div class="bmi-status">
+      <div class="Underweight">Underweight: 0 - 18.5</div>
+      <div class="Normal">Normal: 18.5 - 25</div>
+      <div class="Overweight">Overweight: 25 - 30</div>
+      <div class="Obese">Obese: 30 - 35</div>
+    </div>
+  </div>
+
+  <script>
+    // select the calculate button
+    var calculate = document.querySelector('.calculate');
+
+    // attach event listener to the button
+    calculate.addEventListener('click', findBMI);
+
+    // function to find the BMI
+    function findBMI() {
+      var height = +document.querySelector('#height').value;
+      var weight = +document.querySelector('#weight').value;
+      // check height & weight are a valid number
+      if (height <= 0 || weight <= 0 || isNaN(height) || isNaN(weight)) {
+        alert('Please fill all fields with valid numbers');
+        return;
+      }
+      // convert height to meters
+      height = height / 100;
+      var bmi = weight / (height * height);
+      showResult(bmi);
+    }
+
+    // function to show the result
+    function showResult(bmi) {
+      var result = document.querySelector('.result');
+      var bmiStatus;
+      if (bmi < 18.5) {
+        bmiStatus = 'Underweight';
+      } else if (bmi < 25) {
+        bmiStatus = 'Normal';
+      } else if (bmi < 30) {
+        bmiStatus = 'Overweight';
+      } else {
+        bmiStatus = 'Obese';
+      }
+      result.innerHTML = `<div class=${bmiStatus}>Your BMI is ${bmi.toFixed(2)} and you are ${bmiStatus}.</div>`;
+    }
+  </script>
+</body>
+
+</html>

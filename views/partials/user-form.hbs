@@ -1,0 +1,55 @@
+<div class="col-6">
+  <div class="form-floating mb-3">
+    <input
+      type="text"
+      {{!-- pattern="[A-z]" --}}
+      class="form-control"
+      id="floatingInput"
+      value="{{this.exercise_name}}"
+      placeholder="exercise name"
+      name="exercise_name"
+      required
+    />
+    <label for="floatingInput">Exercise Name</label>
+  </div>
+</div>
+
+<div class="col-6">
+  <div class="form-floating">
+    <input
+      type="number"
+      pattern="[0-9]"
+      class="form-control"
+      id="floatingInput"
+      value="{{this.sets}}"
+      placeholder="Sets"
+      name="sets"
+      minl="1"
+      max="15"
+      required
+    />
+    <label for="floatingInput">Sets</label>
+  </div>
+</div>
+
+<div class="col-6">
+  <div class="form-floating">
+    <input
+      type="number"
+      pattern="[0-9]"
+      class="form-control"
+      id="floatingInput"
+      value="{{this.reps}}"
+      placeholder="Reps"
+      name="reps"
+      min="1"
+      max="15"
+      required
+    />
+    <label for="floatingInput">Reps</label>
+  </div>
+</div>
+
+<div class="col-12 d-grid">
+  <button class="btn btn-primary" type="submit">Submit</button>
+</div>
