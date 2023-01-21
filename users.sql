@@ -27,3 +27,21 @@ BEGIN
     SELECT id FROM users WHERE email = email AND password = hashed_password;
 END //
 DELIMITER ;
+
+
+
+-- CREATE TABLE `heroku_79756038aa8078c`.`users` (
+--   `id` INT NOT NULL AUTO_INCREMENT,
+--   `username` VARCHAR(150) NOT NULL,
+--   `email` VARCHAR(200) NOT NULL,
+--   `password` INT NOT NULL,
+--   PRIMARY KEY (`id`));
+
+
+-- CREATE TABLE `heroku_79756038aa8078c`.`workouts` (
+--   `id` INT NOT NULL AUTO_INCREMENT,
+--   `exercise_name` VARCHAR(50) NOT NULL,
+--   `sets` VARCHAR(50) NOT NULL,
+--   `reps` VARCHAR(50) NOT NULL,
+--   `status` VARCHAR(50) NOT NULL,
+--   PRIMARY KEY (`id`));
